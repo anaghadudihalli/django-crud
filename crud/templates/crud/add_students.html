@@ -1,0 +1,15 @@
+<form action="{% url 'crud:add_s'%}" method="post">
+    {% csrf_token %}
+        email:<br>
+        <input type="text" name="email">
+        <br>
+        First name:<br>
+        <input type="text" name="first_name">
+        <br>
+        Last name:<br>
+        <input type="text" name="last_name">
+        <br><br> 
+        <input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'crud:read' %}">Go back</a>

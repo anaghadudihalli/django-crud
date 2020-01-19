@@ -1,0 +1,18 @@
+<form action="{% url 'crud:add'%}" method="post">
+    {% csrf_token %}
+        Student ID:
+        <select name="student_id">
+        {% for item in student_id_list %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+        </select><br>
+        Title:<br>
+        <input type="text" name="title">
+        <br>
+        Year:<br>
+        <input type="number" name="year">
+        <br><br> 
+        <input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'crud:read' %}">Go back</a>

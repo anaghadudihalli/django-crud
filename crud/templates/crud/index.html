@@ -1,0 +1,15 @@
+{% if publications_list %}
+    <h2>&emsp;Name &emsp;| &emsp;Email Id &emsp;&emsp;| &emsp;Publication title &emsp;| Year</h2>
+    <ul>
+    {% for publication in publications_list %}
+        <li>{{publication.student_id.first_name}} {{publication.student_id.last_name}} &emsp; {{publication.student_id}}&emsp; {{ publication.title }} &emsp;&emsp;&emsp; {{publication.year}}<a href="{% url 'crud:update' publication.id %}">&emsp;Update&emsp;&emsp;</a><a href="{% url 'crud:delete' publication.id %}">&emsp;Delete</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No publications are available.</p>
+{% endif %}
+
+<a href="{% url 'crud:create' %}">Create new Publications</a>
+<a href="{% url 'crud:add_students' %}">Add new students</a>
+
+

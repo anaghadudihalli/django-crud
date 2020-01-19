@@ -1,0 +1,10 @@
+<form action="{% url 'crud:edit' publication.id%}" method="post">
+    {% csrf_token %}
+        Title:<br>
+        <input type="text" name="title">
+        <br>
+        Year:<br>
+        <input type="number" name="year">
+        <br><br> 
+        <input type="submit" value="Submit">
+</form>
