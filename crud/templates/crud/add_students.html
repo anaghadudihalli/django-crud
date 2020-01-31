@@ -1,15 +1,36 @@
-<form action="{% url 'crud:add_s'%}" method="post">
-    {% csrf_token %}
-        email:<br>
-        <input type="text" name="email">
-        <br>
-        First name:<br>
-        <input type="text" name="first_name">
-        <br>
-        Last name:<br>
-        <input type="text" name="last_name">
-        <br><br> 
-        <input type="submit" value="Submit">
-</form>
-
-<a href="{% url 'crud:read' %}">Go back</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        <form action="{% url 'crud:add_s'%}" method="post" role="form">
+        {% csrf_token %}
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <label>Email ID</label>
+                    <input type="text" name="email" class="form-control" placeholder="abc@uic.edu">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <button type="submit" value="submit" class="btn btn-primary">Add</button>
+                <div class="form-group col-lg-3">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

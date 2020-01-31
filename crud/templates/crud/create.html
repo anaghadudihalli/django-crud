@@ -1,18 +1,40 @@
-<form action="{% url 'crud:add'%}" method="post">
-    {% csrf_token %}
-        Student ID:
-        <select name="student_id">
-        {% for item in student_id_list %}
-            <option value="{{ item }}">{{ item }}</option>
-        {% endfor %}
-        </select><br>
-        Title:<br>
-        <input type="text" name="title">
-        <br>
-        Year:<br>
-        <input type="number" name="year">
-        <br><br> 
-        <input type="submit" value="Submit">
-</form>
-
-<a href="{% url 'crud:read' %}">Go back</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        <form action="{% url 'crud:add'%}" method="post" role="form">
+        {% csrf_token %}
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <label>Student Name</label>
+                    <select class="form-control" name="student_id">
+                      {% for item in student_id_list %}
+                          <option value="{{ item.0 }}">{{ item.1 }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <label>Title</label>
+                    <input type="text" name="title" class="form-control" id="exampleFormControlInput1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <label>Year</label>
+                    <input type="number" name="year" class="form-control" id="exampleFormControlInput1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <button type="submit" value="submit" class="btn btn-primary">Create</button>
+                <div class="form-group col-lg-3">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

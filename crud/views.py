@@ -15,7 +15,7 @@ def read(request):
 def create(request):
     student_id_list = []
     for user in Users.objects.all():
-        student_id_list.append(user.id)
+        student_id_list.append([user.id, user.first_name + ' ' + user.last_name])
     context = {'student_id_list':student_id_list}
     return render(request, 'crud/create.html', context)
 

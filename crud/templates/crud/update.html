@@ -1,10 +1,30 @@
-<form action="{% url 'crud:edit' publication.id%}" method="post">
-    {% csrf_token %}
-        Title:<br>
-        <input type="text" name="title">
-        <br>
-        Year:<br>
-        <input type="number" name="year">
-        <br><br> 
-        <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        <form action="{% url 'crud:edit' publication.id%}" method="post" role="form">
+        {% csrf_token %}
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <label>Title</label>
+                    <input type="text" name="title" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <label>Year</label>
+                    <input type="number" name="year"class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <button type="submit" value="submit" class="btn btn-primary">Update</button>
+                <div class="form-group col-lg-3">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

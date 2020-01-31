@@ -1,15 +1,35 @@
-{% if publications_list %}
-    <h2>&emsp;Name &emsp;| &emsp;Email Id &emsp;&emsp;| &emsp;Publication title &emsp;| Year</h2>
-    <ul>
-    {% for publication in publications_list %}
-        <li>{{publication.student_id.first_name}} {{publication.student_id.last_name}} &emsp; {{publication.student_id}}&emsp; {{ publication.title }} &emsp;&emsp;&emsp; {{publication.year}}<a href="{% url 'crud:update' publication.id %}">&emsp;Update&emsp;&emsp;</a><a href="{% url 'crud:delete' publication.id %}">&emsp;Delete</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No publications are available.</p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    {% if publications_list %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email ID</th>
+                    <th>Publication Title</th>
+                    <th>Year</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for publication in publications_list %}
+                    <tr>
+                        <td>{{ publication.student_id.first_name }} {{ publication.student_id.last_name }}</td>
+                        <td>{{ publication.student_id }}</td>
+                        <td>{{ publication.title }}</td>
+                        <td>{{ publication.year }}</td>
+                        <td><a href="{% url 'crud:update' publication.id %}" class="btn btn-secondary">Update</a>&emsp;<a href="{% url 'crud:delete' publication.id %}" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                {% endfor %}          
+            </tbody>
+        </table>
+    {% endif %}
 
-<a href="{% url 'crud:create' %}">Create new Publications</a>
-<a href="{% url 'crud:add_students' %}">Add new students</a>
-
-
+    <a href="{% url 'crud:create' %}" class="btn btn-primary" >Create new Publications</a>
+    <a href="{% url 'crud:add_students' %}" class="btn btn-primary">Add new students</a>
+</body>
+</html>
